@@ -1,17 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { catchError, map, Observable, of, startWith } from 'rxjs';
-import { DataState } from './enum/data-state.enum';
-import { AppState } from './interface/app-state';
-import { CustomResponse } from './interface/custom-response';
-import { CategoryService } from './service/category.service';
-import { ActivatedRoute } from '@angular/router';
+import { DataState } from '../enum/data-state.enum';
+import { AppState } from '../interface/app-state';
+import { CustomResponse } from '../interface/custom-response';
+import { CategoryService } from '../service/category.service';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  selector: 'app-navigation',
+  templateUrl: './navigation.component.html',
+  styleUrls: ['./navigation.component.css']
 })
-export class AppComponent implements OnInit{
+export class NavigationComponent implements OnInit {
   categoryState$!: Observable<AppState<CustomResponse>>;
 
   constructor(private categoryService: CategoryService) { }
@@ -28,4 +27,5 @@ export class AppComponent implements OnInit{
         })
     );
   }
+
 }

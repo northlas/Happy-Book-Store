@@ -1,0 +1,25 @@
+<ng-container *ngIf="(bookState$ | async) as bookState">
+    <ng-container *ngIf="bookState.appData as datas">
+        <div class="w-100 color-medium fs-3 ps-1" style="color:#FCFFE7;">
+            Book List
+        </div>
+        <table class="table table-hover">
+            <thead class="table-light">
+                <th scope="col">Title</th>
+                <th scope="col">Author</th>
+            </thead>
+            <tbody class="color-light" style="color: #DEA057">
+                <tr *ngFor="let book of datas.data.books | slice: (page-1) * pageSize : page * pageSize" [routerLink]="['/book', book.id]" style="cursor: pointer">
+                    <td>{{ book.title }}</td>
+                    <td>{{ book.detail.author }}</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="pagination justify-content-end">
+            <ngb-pagination [collectionSize]="collectionSize" [(page)]="page">
+                <ng-template ngbPaginationPrevious>Prev</ng-template>
+                <ng-template ngbPaginationNext>Next</ng-template>
+            </ngb-pagination>
+        </div>
+    </ng-container>
+</ng-container>
