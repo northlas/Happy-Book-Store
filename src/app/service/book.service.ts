@@ -9,7 +9,7 @@ import { CustomResponse } from '../interface/custom-response';
   providedIn: 'root'
 })
 export class BookService {
-  private readonly apiUrl = environment.apiBaseUrl;
+  private readonly apiUrl:String = environment.apiBaseUrl;
 
   constructor(private http: HttpClient) { }
   

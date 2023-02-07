@@ -7,7 +7,7 @@ import { CustomResponse } from '../interface/custom-response';
 
 @Injectable({ providedIn: 'root' })
 export class CategoryService {
-  private readonly apiUrl = environment.apiBaseUrl;
+  private readonly apiUrl:String = environment.apiBaseUrl;
 
   constructor(private http: HttpClient) { }
   
